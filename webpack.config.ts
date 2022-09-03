@@ -21,9 +21,15 @@ module.exports = {
   },
 
   plugins: [
+    // https://github.com/jantimon/html-webpack-plugin#options
     new HtmlWebpackPlugin({
-        title: 'KeyPost Web', 
-        template: 'src/custom.html' }) 
+      title: 'tutorial', 
+      template: 'src/custom.html',
+      filename: 'custom.html'}),
+    new HtmlWebpackPlugin({
+      title: 'Keypost Home',
+      template: 'src/index.html',
+      filename: 'index.html'})
    ],
 
   devServer: {
