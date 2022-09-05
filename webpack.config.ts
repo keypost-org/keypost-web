@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+
 const path = require('path');
 
 module.exports = (env: any) => {
@@ -34,7 +36,12 @@ module.exports = (env: any) => {
       new HtmlWebpackPlugin({
         title: 'Keypost Home',
         template: 'src/index.html',
-        filename: 'index.html'})
+        filename: 'index.html'}),
+      new CopyPlugin({
+        patterns: [
+          { from: "src/static", to: "static" },
+        ],
+      }),
     ],
 
     devServer: {
