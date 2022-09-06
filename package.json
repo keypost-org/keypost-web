@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --env KEYPOST_APP_HOST=$KEYPOST_APP_HOST",
-    "build": "webpack --mode production --env production --env KEYPOST_APP_HOST=$KEYPOST_APP_HOST"
+    "build": "webpack --mode production --env production --env KEYPOST_APP_HOST=$KEYPOST_APP_HOST",
+    "clean": "rm -rf dist/*"
   },
   "dependencies": {
     "@cloudflare/opaque-ts": "^0.7.5",

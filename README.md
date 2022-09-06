@@ -1,6 +1,7 @@
 # keypost-web
 
 ```
+sudo npm install -g webpack webpack-cli
 npm install
 export NODE_OPTIONS=--openssl-legacy-provider (or 'direnv allow' on .envrc file if installed)
 npm run build
