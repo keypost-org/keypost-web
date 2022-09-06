@@ -2,7 +2,6 @@
 
 ```
 npm install
-npm install --save-dev webpack-dev-server ts-node @types/webpack-dev-server @types/node html-webpack-plugin
 export NODE_OPTIONS=--openssl-legacy-provider (or 'direnv allow' on .envrc file if installed)
 npm run build
 npm run start
