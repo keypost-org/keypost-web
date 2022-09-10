@@ -4,6 +4,7 @@
 ```
 sudo npm install -g webpack webpack-cli typescript-formatter
 npm install
+npm init @eslint/config
 export NODE_OPTIONS=--openssl-legacy-provider (or 'direnv allow' on .envrc file if installed)
 npm run start
 ```
@@ -15,9 +16,11 @@ Trouble Shooting: https://stackoverflow.com/a/69699772
 ## Development
 ```
 tsfmt -r src/<your-file>.ts
+./node_modules/eslint/bin/eslint.js src/<your-file>.ts
 npm run build
 git add .
 git commit -S -m "<my-detailed-commit-message>"
 git push
 ```
 
+## TODO
