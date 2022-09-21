@@ -4,6 +4,7 @@
   "description": "Keypost web client",
   "main": "dist/main.js",
   "devDependencies": {
+    "@cloudflare/opaque-ts": "^0.7.5",
     "@types/node": "^18.7.15",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
@@ -14,6 +15,8 @@
     "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-promise": "^6.0.1",
     "html-webpack-plugin": "^5.5.0",
+    "js-base64": "^3.7.2",
+    "pkce-challenge": "^3.0.0",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
