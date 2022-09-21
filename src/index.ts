@@ -1,4 +1,4 @@
-import { register_start, register_finish, subtract } from "./app";
+import { login_start, login_finish, register_start, register_finish, subtract } from "./app";
 import axios from "axios";
 import { Base64 } from "js-base64";
 import { KeypostClient } from "./opaque";
@@ -36,9 +36,40 @@ function init_registration() {
         const el = document.querySelector("div[id='response']");
         if (el) {
           p.then((data) => {
-            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ start/init data=" + JSON.stringify(data));
+            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ register_start/init data=" + JSON.stringify(data));
             register_finish(client, email, data.id, data.o, Base64.btoa(pkce.code_verifier)).then((data) => {
-              console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ finish data=" + JSON.stringify(data));
+              console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ register_finish data=" + JSON.stringify(data));
+              el.textContent = data.id + ", " + data.o;
+            });
+          });
+        }
+      });
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log(error);
+      } else {
+        console.log(error);
+      }
+    }
+  }
+}
+
+function init_login() {
+  const btn = document.querySelector("button[id='login-btn'");
+  if (btn) {
+    try {
+      btn.addEventListener("click", function(e : Event) {
+        e.preventDefault();
+        const client = new KeypostClient();
+        let email = "jon@example.com";
+        let psswd = "foobar";
+        let p = login_start(client, email, psswd);
+        const el = document.querySelector("div[id='response']");
+        if (el) {
+          p.then((data) => {
+            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ login_start/init data=" + JSON.stringify(data));
+            login_finish(client, email, data.id, data.o).then((data) => {
+              console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ login_finish data=" + JSON.stringify(data));
               el.textContent = data.id + ", " + data.o;
             });
           });
@@ -58,6 +89,7 @@ function init() {
   init_tutorial();
   init_user_test();
   init_registration();
+  init_login();
 }
 
 /*** Tutorial code for /custom.html ***/
