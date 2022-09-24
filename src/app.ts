@@ -87,8 +87,3 @@ export async function login_finish(client : KeypostClient, email : string, id : 
 function serialize(input : number[]) {
   return Base64.btoa(String.fromCharCode.apply(null, input)); // https://stackoverflow.com/a/12713326
 }
-
-/*** Tutorial code for /custom.html ***/
-export function subtract(a : number, b : number) : number {
-  return a - b;
-}

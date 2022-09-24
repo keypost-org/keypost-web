@@ -1,4 +1,4 @@
-import { login_start, login_finish, register_start, register_finish, subtract } from "./app";
+import { login_start, login_finish, register_start, register_finish } from "./app";
 import axios from "axios";
 import { Base64 } from "js-base64";
 import { KeypostClient } from "./opaque";
@@ -86,27 +86,9 @@ function init_login() {
 }
 
 function init() {
-  init_tutorial();
   init_user_test();
   init_registration();
   init_login();
-}
-
-/*** Tutorial code for /custom.html ***/
-function init_tutorial() {
-  const form = document.querySelector("form");
-  form?.addEventListener("submit", tutorialSubmitHandler);
-}
-
-function tutorialSubmitHandler(e : Event) {
-  e.preventDefault();
-  const num1 = document.querySelector("input[name='firstnumber']") as HTMLInputElement;
-  const num2 = document.querySelector("input[name='secondnumber']") as HTMLInputElement;
-  const result = subtract(Number(num1.value), Number(num2.value));
-  const resultElement = document.querySelector("p");
-  if (resultElement) {
-    resultElement.textContent = result.toString();
-  }
 }
 
 init();

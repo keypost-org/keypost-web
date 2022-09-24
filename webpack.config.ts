@@ -3,7 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 const path = require('path');
 
-module.exports = (env: any) => {
+module.exports = (env : any) => {
   // https://webpack.js.org/guides/environment-variables/ Use env.<YOUR VARIABLE> here:
   console.log('KEYPOST_APP_HOST: ', env.KEYPOST_APP_HOST);
   console.log('production: ', env.production || false);
@@ -31,13 +31,15 @@ module.exports = (env: any) => {
     plugins: [
       // https://github.com/jantimon/html-webpack-plugin#options
       new HtmlWebpackPlugin({
-        title: 'tutorial', 
+        title: 'custom',
         template: 'src/custom.html',
-        filename: 'custom.html'}),
+        filename: 'custom.html'
+      }),
       new HtmlWebpackPlugin({
         title: 'Keypost Home',
         template: 'src/index.html',
-        filename: 'index.html'}),
+        filename: 'index.html'
+      }),
       new CopyPlugin({
         patterns: [
           { from: "src/static", to: "static" },
