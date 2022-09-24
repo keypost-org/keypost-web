@@ -29,15 +29,15 @@ function init_registration() {
         e.preventDefault();
         const client = new KeypostClient();
         const pkce = pkceChallenge(128);
-        let email = "jon@example.com";
-        let psswd = "foobar";
+        const email = document.querySelector("input[name='register-email']") as HTMLInputElement;
+        const psswd = document.querySelector("input[name='register-password']") as HTMLInputElement;
         let challenge = pkce.code_challenge;
-        let p = register_start(client, email, psswd, challenge);
+        let p = register_start(client, email.value, psswd.value, challenge);
         const el = document.querySelector("div[id='response']");
         if (el) {
           p.then((data) => {
             console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ register_start/init data=" + JSON.stringify(data));
-            register_finish(client, email, data.id, data.o, Base64.btoa(pkce.code_verifier)).then((data) => {
+            register_finish(client, email.value, data.id, data.o, Base64.btoa(pkce.code_verifier)).then((data) => {
               console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ register_finish data=" + JSON.stringify(data));
               el.textContent = data.id + ", " + data.o;
             });
@@ -61,14 +61,14 @@ function init_login() {
       btn.addEventListener("click", function(e : Event) {
         e.preventDefault();
         const client = new KeypostClient();
-        let email = "jon@example.com";
-        let psswd = "foobar";
-        let p = login_start(client, email, psswd);
+        const email = document.querySelector("input[name='login-email']") as HTMLInputElement;
+        const psswd = document.querySelector("input[name='login-password']") as HTMLInputElement;
+        let p = login_start(client, email.value, psswd.value);
         const el = document.querySelector("div[id='response']");
         if (el) {
           p.then((data) => {
             console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ login_start/init data=" + JSON.stringify(data));
-            login_finish(client, email, data.id, data.o).then((data) => {
+            login_finish(client, email.value, data.id, data.o).then((data) => {
               console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$ login_finish data=" + JSON.stringify(data));
               el.textContent = data.id + ", " + data.o;
             });
