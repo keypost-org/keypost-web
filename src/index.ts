@@ -4,6 +4,10 @@ import { Base64 } from "js-base64";
 import { KeypostClient } from "./opaque";
 import pkceChallenge from "pkce-challenge";
 
+// https://getbootstrap.com/docs/5.2/getting-started/webpack/
+import "./scss/styles.scss";
+import { Toast } from "bootstrap";
+
 async function init_user_test() {
   try {
     const { data } = await axios.get("/static/user.json");
@@ -77,11 +81,21 @@ function init_login() {
       });
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.log(error);
+        show_error(error.toJSON() + "");
       } else {
-        console.log(error);
+        show_error(error + "");
       }
     }
+  }
+}
+
+// https://getbootstrap.com/docs/5.2/components/toasts/
+function show_error(msg : string) {
+  console.log("ERROR: " + msg); // TODO Update html element text
+  const toastLiveExample = document.getElementById("liveToast");
+  if (toastLiveExample) {
+    const toast = new Toast(toastLiveExample);
+    toast.show();
   }
 }
 

@@ -4,11 +4,12 @@
   "description": "Keypost web client",
   "main": "dist/main.js",
   "devDependencies": {
-    "@cloudflare/opaque-ts": "^0.7.5",
     "@types/node": "^18.7.15",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
+    "autoprefixer": "^10.4.12",
     "copy-webpack-plugin": "6.4.1",
+    "css-loader": "^6.7.1",
     "eslint": "^8.23.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -17,6 +18,10 @@
     "html-webpack-plugin": "^5.5.0",
     "js-base64": "^3.7.2",
     "pkce-challenge": "^3.0.0",
+    "postcss-loader": "^7.0.1",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
@@ -31,7 +36,9 @@
   },
   "dependencies": {
     "@cloudflare/opaque-ts": "^0.7.5",
+    "@popperjs/core": "^2.11.6",
+    "@types/bootstrap": "^5.2.4",
     "axios": "^0.27.2",
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.1"
   }
 }
