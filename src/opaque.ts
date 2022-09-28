@@ -59,7 +59,10 @@ export class KeypostClient {
     const deser_ke2 = KE2.deserialize(this.cfg, serverResponse);
     const finClient = await this.client.authFinish(deser_ke2, server_identity, client_identity, context);
     if (finClient instanceof Error) {
-      throw new Error(`client failed to authFinish: ${finClient}`); // FIXME Error: client failed to authFinish: Error: handshake error
+      throw new Error(`client failed to authFinish: ${finClient}`);
+      // Possible Errors:
+      // Error: client failed to authFinish: Error: handshake error
+      // Error: client failed to authFinish: Error: EnvelopeRecoveryError (this happens when password is wrong)
     }
     return finClient;
   }
