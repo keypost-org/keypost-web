@@ -4,14 +4,14 @@
 ```
 ./install.sh
 ```
-
 Initial project setup from https://docs.djangoproject.com/en/5.0/intro/tutorial01/
 
-## Development
+## Running Locally
 ```
+python keypost_web/manage.py runserver 8001
 ```
 
-## Running
+## Local Development
 ```
 ```
 

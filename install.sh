@@ -14,7 +14,12 @@ if [ -z "$POSTGRES_VERSION" ]; then
   exit 1
 fi
 
-echo "Installing Django..."
-python3 -m pip install Django
+if [ -z "$(command -v sqlite3)" ]; then
+  echo "Please install sqlite3!"
+  exit 1
+fi
+
+echo "Installing python tools and dependencies..."
+python3 -m pip install -r requirements.txt
 
 echo "Done!"
